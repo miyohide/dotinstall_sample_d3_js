@@ -10,6 +10,7 @@
     <p>Hello 3</p>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script>
+        d3.select("body").append("p").text("hello 4");
         /*
            1) 要素を指定して
            select selectAll
@@ -21,7 +22,7 @@
            append
            remove
          */
-        var p = d3.select("body").selectAll("p");
+        /* var p = d3.select("body").selectAll("p"); */
         /*
         p.text("hello from d3!");
         p.style("font-size", "28px");
@@ -39,9 +40,11 @@
         alert(p.style("font-size"));
          */
 
+        /*
         p.style("font-size", function() {
                 return Math.floor(Math.random() * 29) + "px";
                 });
+        */
     </script>
 </body>
 </html>
