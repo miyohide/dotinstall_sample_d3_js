@@ -15,7 +15,16 @@
 
         p.data(dataset).text(function(d, i) {
             return i + "番目は" + d + "です！";
-        });
+            });
+        /*
+           dataを使った瞬間に仮想領域が作られる
+
+           update: 対応する要素がある場合 -> text, style
+           enter: 対応する要素が足りない場合 -> append
+           exit: 対応する要素が余った場合 -> remove
+
+         */
+
 
         /* d3.select("body").append("p").text("hello 4").remove(); */
         /*
