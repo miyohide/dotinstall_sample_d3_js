@@ -10,12 +10,25 @@
     <p>Hello 3</p>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script>
-        var dataset = [12, 24, 36];
+        var dataset = [12, 24, 32, 48];
         var p = d3.select("body").selectAll("p");
 
+        var update = p.data(dataset);
+        var enter = update.enter();
+
+        update.text(function(d) {
+            return "update: " + d;
+        });
+
+        enter.append("p").text(function(d) {
+            return "enter: " + d;
+        });
+
+        /*
         p.data(dataset).text(function(d, i) {
             return i + "番目は" + d + "です！";
             });
+        */ 
         /*
            dataを使った瞬間に仮想領域が作られる
 
