@@ -21,8 +21,12 @@
             .attr({
                 cx: function (d, i) { return 50 + (i * 100); },
                 cy: h / 2,
-                r: function(d) { return d; },
+                r: 0,
                 fill: "red"
+                })
+            .transition()
+            .attr({
+                r: function(d) { return d; }
             });
     </script>
 </body>
