@@ -25,6 +25,9 @@
                 fill: "red"
                 })
             .transition()
+            .delay(function(d, i) {
+                    return i * 300;
+            })
             .duration(1000)
             .ease("bounce")
             .attr({
