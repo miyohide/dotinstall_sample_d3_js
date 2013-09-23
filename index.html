@@ -14,7 +14,8 @@
 
         var xScale = d3.scale.linear()
             .domain([0, d3.max(dataset)]) /* 入力の値の範囲 */
-            .range([0, w]);  /* 出力の値の範囲 */
+            .range([0, w])  /* 出力の値の範囲 */
+            .nice(); /* データをいいかんじに丸めてくれる */
 
         var svg = d3.select("body").append("svg").attr({window:w, height:h});
 
