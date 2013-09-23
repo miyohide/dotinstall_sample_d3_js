@@ -14,39 +14,19 @@
 
         var svg = d3.select("body").append("svg").attr({window:w, height:h});
 
-        svg.selectAll("circle")
+        /* 横にデータの棒グラフを出力する */
+        svg.selectAll("rect")
             .data(dataset)
             .enter()
-            .append("circle")
-            .on("mouseover", function(d) {
-                d3.select(this).attr("fill", "orange");
-                })
-            .on("mouseout", function(d) {
-                d3.select(this).attr("fill", "red");
-                })
-            .on("click", function(d) {
-                var rs = d3.select(this).attr("r");
-                alert(rs);
-                })
-            .transition()
-            .delay(function(d, i) {
-                    return i * 300;
-            })
-            .duration(1000)
-            .ease("bounce")
-            .each("start", function() {
-                d3.select(this).attr({
-                    fill: "green",
-                    r: 0,
-                    cy: h
-                });
-            })
+            .append("rect")
             .attr({
-                cx: function (d, i) { return 50 + (i * 100); },
-                cy: h / 2,
-                r: function(d) { return d; },
+                x: 0,
+                y: function(d, i) { /* iはデータの位置 */ return i * 25 },
+                width: function(d) { /* dはデータの値 */ return d },
+                height: 20,
                 fill: "red"
             });
+
     </script>
 </body>
 </html>
