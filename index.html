@@ -18,6 +18,9 @@
             .data(dataset)
             .enter()
             .append("circle")
+            .on("mouseover", function(d) {
+                d3.select(this).attr("fill", "orange");
+                })
             .transition()
             .delay(function(d, i) {
                     return i * 300;
@@ -36,16 +39,6 @@
                 cy: h / 2,
                 r: function(d) { return d; },
                 fill: "red"
-                })
-            .each("end", function() {
-                d3.select(this)
-                    .transition()
-                    .duration(800)
-                    .attr({
-                        fill: "pink",
-                        r: 0,
-                        cy: 0
-                    });
             });
     </script>
 </body>
