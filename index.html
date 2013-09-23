@@ -12,6 +12,10 @@
         var w = 500;
         var h = 200;
 
+        var xScale = d3.scale.linear()
+            .domain([0, 50]) /* 入力の値の範囲 */
+            .range([0, w]);  /* 出力の値の範囲 */
+
         var svg = d3.select("body").append("svg").attr({window:w, height:h});
 
         /* 横にデータの棒グラフを出力する */
@@ -22,7 +26,7 @@
             .attr({
                 x: 0,
                 y: function(d, i) { /* iはデータの位置 */ return i * 25 },
-                width: function(d) { /* dはデータの値 */ return d },
+                width: function(d) { /* dはデータの値 */ return xScale(d) },
                 height: 20,
                 fill: "red"
             });
