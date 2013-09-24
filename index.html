@@ -20,10 +20,11 @@
 
         var w = 500;
         var h = 200;
+        var padding = 20;
 
         var xScale = d3.scale.linear()
             .domain([0, d3.max(dataset)]) /* 入力の値の範囲 */
-            .range([0, w])  /* 出力の値の範囲 */
+            .range([padding, w - padding])  /* 出力の値の範囲 */
             .nice(); /* データをいいかんじに丸めてくれる */
 
         var svg = d3.select("body").append("svg").attr({window:w, height:h});
@@ -45,7 +46,7 @@
             .enter()
             .append("rect")
             .attr({
-                x: 0,
+                x: padding,
                 y: function(d, i) { /* iはデータの位置 */ return i * 25 },
                 width: function(d) { /* dはデータの値 */ return xScale(d) },
                 height: 20,
