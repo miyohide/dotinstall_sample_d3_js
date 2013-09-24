@@ -19,6 +19,13 @@
 
         var svg = d3.select("body").append("svg").attr({window:w, height:h});
 
+        var xAxis = d3.svg.axis()
+                        .scale(xScale)
+                        .orient("bottom");
+
+        svg.append("g")
+            .call(xAxis);
+
         /* 横にデータの棒グラフを出力する */
         svg.selectAll("rect")
             .data(dataset)
